@@ -1,4 +1,4 @@
-obj-m := hello_world.o
+obj-m := passing_simple_count.o
 
 all:
 	make -C /lib/modules/`uname -r`/build M=${PWD} modules
