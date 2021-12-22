@@ -1,0 +1,51 @@
+\section{Hello world}
+
+\text{}
+
+\textbf{Include header and define the LICENSE(option)}
+\begin{lstlisting}[style=CStyle]
+#include <linux/kernel.h>
+#include <linux/module.h>
+
+MODULE_LICENSE("GPL");
+\end{lstlisting}
+
+\textbf{When insert module, it will call the initial function}
+\begin{lstlisting}[style=CStyle]
+    static int test_hello_init(void) {
+        printk(KERN_INFO"%s: In init \n", __func__);
+        return 0;
+    }
+
+    module_init(test_hello_init);
+\end{lstlisting}
+
+\textbf{When rmmod the kernel module, it will call the exit function}
+\begin{lstlisting}[style=CStyle]
+    static void test_hello_exit(void) {
+        printk(KERN_INFO"%s: In exit \n", __func__);
+    }
+
+    module_exit(test_hello_exit);
+\end{lstlisting}
+
+
+\textbf{Build steps}
+\begin{enumerate}
+    \item Write the Makefile
+\begin{lstlisting}[style=bashStyle]
+obj-m := hello_world.o
+
+all:
+    make -C /lib/modules/`uname -r`/build M=${PWD} modules
+
+clean:
+    make -C /lib/modules/`uname -r`/build M=${PWD} clean
+\end{lstlisting}
+    \item Build
+\begin{lstlisting}[style=bashStyle]
+    $ make all
+\end{lstlisting}
+\end{enumerate}
+
+

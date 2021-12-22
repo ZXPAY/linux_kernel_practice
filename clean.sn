@@ -1,0 +1,4 @@
+ninja -C build 01_clean
+ninja -C build 03_clean
+rm -rf doc/build
+
