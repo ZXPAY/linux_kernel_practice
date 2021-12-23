@@ -20,6 +20,7 @@ module_param(count, int, S_IRUGO);
 
 static int test_arguments_init(void) {
     printk(KERN_INFO"%s: In init\n", __func__);
+    printk(KERN_INFO"%s: name: %s\n", __func__, name);
     printk(KERN_INFO"%s: pass count: %d\n", __func__, count);
 
     return 0;
@@ -37,5 +38,4 @@ module_exit(test_exit);
 
 MODULE_AUTHOR("Danny Deng");
 MODULE_DESCRIPTION("Argument parsing example");
-
 
