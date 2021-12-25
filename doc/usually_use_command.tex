@@ -34,6 +34,15 @@
 \end{lstlisting}
 
 
+\textbf{Add and remove modules from the Linux Kernel}
+
+Loads the module only in /lib/modules/`uname -r`
+modprobe depends on depmod tool to calculate dependancies
+\begin{lstlisting}[style=bashStyle]
+    $ sudo modprobe {module name}
+    $ echo the dependancies
+    $ vi /lib/module/`uname -r`/modules.dep
+\end{lstlisting}
 
 
 

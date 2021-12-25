@@ -1,0 +1,51 @@
+\section{Internel module init}
+
+\textbf{Example code below}
+\begin{lstlisting}[style=CStyle]
+    #include <linux/kernel.h>
+    #include <linux/module.h>
+    
+    MODULE_LICENSE("GPL");
+    
+    /*
+    * Kernel module default initial function name
+    */
+    int init_module(void) {
+        printk(KERN_INFO"%s: In init\n", __func__);
+        return 0;
+    }
+    
+    /*
+    * Kernel module default exit function name
+    */
+    void cleanup_module(void) {
+        printk(KERN_INFO"%s: In exit\n", __func__);
+    }
+    
+    MODULE_AUTHOR("Danny Deng");
+    MODULE_DESCRIPTION("Internel module example");     
+\end{lstlisting}
+
+\begin{itemize}
+    \item First
+    In my case the \textit{module\_init} define in this file \newline
+    "/usr/src/linux-hwe-5.11-headers-5.11.0-41/include/linux/module.h"
+    \item Second, the macro \textit{module\_init} will expand the function with "alias" to let function call the same thing with different name.
+    \begin{lstlisting}[style=CStyle]
+        /* Each module must use one module_init(). */
+        #define module_init(initfn)					\
+            static inline initcall_t __maybe_unused __inittest(void)		\
+            { return initfn; }					\
+            int init_module(void) __copy(initfn) __attribute__((alias(#initfn)));
+        
+        /* This is only required if you want to be unloadable. */
+        #define module_exit(exitfn)					\
+            static inline exitcall_t __maybe_unused __exittest(void)		\
+            { return exitfn; }					\
+            void cleanup_module(void) __copy(exitfn) __attribute__((alias(#exitfn)));
+        
+        #endif           
+    \end{lstlisting}
+\end{itemize}
+
+

@@ -1,5 +1,8 @@
 ninja -C build 01_clean
+ninja -C build 02_clean
 ninja -C build 03_clean
+ninja -C build 04_clean
+ninja -C build 05_clean
 rm -rf build
 rm -rf doc/build
 

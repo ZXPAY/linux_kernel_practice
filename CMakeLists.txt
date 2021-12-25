@@ -7,5 +7,8 @@ add_subdirectory("doc")
 
 # Build the project
 add_subdirectory(01_hello_world)
+add_subdirectory(02_internel_module_init)
 add_subdirectory(03_passing_parameter)
+add_subdirectory(04_symbol_table)
+add_subdirectory(05_module_stacking)
 
