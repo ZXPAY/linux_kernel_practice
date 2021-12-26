@@ -1,0 +1,19 @@
+\section{Module licence}
+
+\subsection{Tainted kernel document}
+Linux bash to determine whether tainted kernel
+\begin{itemize}
+    \item \href{https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/tools/debugging/kernel-chktaint}{tainted kernel check script}
+    \item \href{https://www.kernel.org/doc/html/latest/admin-guide/tainted-kernels.html}{tainted kernels document}
+\end{itemize}
+
+\textbf{Use the run time command to determine whether kernel tainted}
+\begin{lstlisting}[style=CStyle]
+    $ cat /proc/sys/kernel/tainted
+\end{lstlisting}
+
+
+\subsection{Result}
+\begin{center}
+    \includegraphics[width=\linewidth]{images/module_licence_out.png}
+\end{center}

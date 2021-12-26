@@ -1,3 +1,7 @@
 build/*
 !build/master.pdf
-
+./*.log
+./*.fls
+./*.err
+./*.lua
+./*.in
