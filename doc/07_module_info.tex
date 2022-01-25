@@ -1,0 +1,22 @@
+\section{Kernel info}
+
+\subsection{objdump}
+
+
+\textbf{To see the all section}
+\begin{lstlisting}[style=CStyle]
+    $ objdump --section-headers ./module_info.ko
+\end{lstlisting}
+
+
+\textbf{To see the contents of the .modinfo section}
+\begin{lstlisting}[style=CStyle]
+    $ objdump --section-headers --section=.modinfo --full-contents ./module_info.ko
+\end{lstlisting}
+
+
+\subsection{Result}
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07_objdump.png}
+\end{center}
+
