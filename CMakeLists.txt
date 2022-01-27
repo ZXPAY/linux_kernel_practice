@@ -14,4 +14,6 @@ add_subdirectory(05_module_stacking)
 add_subdirectory(06_module_licence)
 add_subdirectory(07_module_metadata)
 add_subdirectory(08_printk)
+add_subdirectory(09_panic_oops)
+add_subdirectory(10_process_mana)
 
